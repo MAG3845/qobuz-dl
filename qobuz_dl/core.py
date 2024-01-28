@@ -263,10 +263,11 @@ class QobuzDL:
                 text = fmt.format(mode_dict["format"], **i)
                 if mode_dict["requires_extra"]:
 
-                    text = "{} - {} [{}]".format(
+                    text = "{} - {} [{}]{}".format(
                         text,
                         format_duration(i["duration"]),
                         "HI-RES" if i["hires_streamable"] else "LOSSLESS",
+                        " [Explicit]" if i["parental_warning"] else "",
                     )
 
                 url = "{}{}/{}".format(WEB_URL, item_type, i.get("id", ""))
